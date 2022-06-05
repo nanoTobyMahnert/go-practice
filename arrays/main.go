@@ -9,11 +9,12 @@ const (
 )
 
 func main() {
-	var books [yearly]string
-	books[0] = "Kafkas revenge"
-	books[1] = "mehg"
-	books[2] = "Everythingship"
-	books[3] += books[0] + " 2nd Edition"
+	books := [yearly]string{
+		"Kafkas revenge",
+		"mehg",
+		"Everythingship",
+		"Kafkas revenge 2nd Edition",
+	}
 	fmt.Printf("books : %#v\n", books)
 
 	var (
