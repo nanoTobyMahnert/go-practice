@@ -27,6 +27,17 @@ func main() {
 		"off":      "kapalı",
 	}
 
+	turkish := make(map[string]string, len(dict))
+	for k, v := range dict {
+		turkish[v] = k
+	}
+
+	if value, ok := turkish[query]; ok {
+		fmt.Printf("%s -> %s\n", query, value)
+		fmt.Printf("# of keys %d\n", len(dict))
+		return
+	}
+
 	if value, ok := dict[query]; ok {
 		fmt.Printf("%s -> %s\n", query, value)
 		fmt.Printf("# of keys %d\n", len(dict))
