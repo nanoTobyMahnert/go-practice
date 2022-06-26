@@ -1,16 +1,16 @@
 package main
 
 func main() {
-	var (
-		mobydick  = book{title: "Moby Dick", price: 10}
-		minecraft = game{title: "Minecraft", price: 20}
-		tetris    = game{title: "tetris", price: 40}
-		puzzle    = puzzle{title: "rubik", price: 50}
-		yoda      = toy{title: "yoda", price: 60}
-	)
 
-	var store list
-	store = append(store, &minecraft, &tetris, mobydick, puzzle, &yoda)
+	store := list{
+		&book{product{"Moby Dick", 10}, 1234567},
+		&book{product{"bla", 10}, "08747656"},
+		&book{product{"what book", 10}, nil},
+		&puzzle{product{"rubik", 50}},
+		&game{product{"Minecraft", 20}},
+		&game{product{"tetris", 40}},
+		&toy{product{"yoda", 60}},
+	}
 	store.discount(.5)
 	store.print()
 

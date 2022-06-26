@@ -3,11 +3,12 @@ package main
 import "fmt"
 
 // on abstract type, a protocol, a contract
-type printer interface {
+type item interface {
 	print()
+	discount(ratio float64)
 }
 
-type list []printer
+type list []item
 
 func (l list) print() {
 	if len(l) == 0 {
@@ -21,10 +22,7 @@ func (l list) print() {
 }
 
 func (l list) discount(ratio float64) {
-	type discounter interface{ discount(ratio float64) }
 	for _, it := range l {
-		if g, ok := it.(discounter); ok {
-			g.discount(ratio)
-		}
+		it.discount(ratio)
 	}
 }
